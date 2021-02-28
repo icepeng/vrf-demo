@@ -17,7 +17,7 @@
   <div class="key">{{ alpha | async }}</div>
 </div>
 <h3 *ngIf="alpha | async">
-  3. 비밀 키와 1차 랜덤값을 사용해 최종 랜덤값과 증명값을 계산합니다.
+  5. 비밀 키와 1차 랜덤값을 사용해 최종 랜덤값과 증명값을 계산합니다.
   <button (click)="generateProof()" class="btn btn-primary">계산</button>
   <button (click)="bluff()" class="btn btn-warning">거짓 계산</button>
 </h3>
@@ -48,6 +48,6 @@
   </tbody>
 </table>
 <h3 *ngIf="proof">
-  5. 서버로 증명값을 전송합니다.
+  6. 서버로 증명값을 전송합니다.
   <button (click)="sendProof()" class="btn btn-primary">전송</button>
 </h3>
