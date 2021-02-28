@@ -46,6 +46,9 @@ export class ServerComponent implements OnInit {
       }
       this.accepted = true;
     } catch (err) {
+      this.result = undefined;
+      this.resultMod = undefined;
+      this.selected = undefined;
       this.accepted = false;
     }
   }
