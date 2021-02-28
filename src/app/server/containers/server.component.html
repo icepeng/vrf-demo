@@ -27,9 +27,9 @@
   <button (click)="verify()" class="btn btn-primary">검증</button>
 </h3>
 
-<div *ngIf="accepted">
+<div *ngIf="accepted != null">
   <div class="p4">검증 결과</div>
-  <div class="key">{{ accepted }}</div>
+  <div class="accepted">{{ accepted }}</div>
 </div>
 <div *ngIf="result">
   <div class="p4">최종 랜덤값(16진수)</div>
