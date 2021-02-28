@@ -32,7 +32,9 @@
               "node_modules/@clr/ui/clr-ui.min.css",
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/chance/dist/chance.min.js"]
+            "scripts": [
+              "node_modules/chance/dist/chance.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -122,6 +124,10 @@
               "devServerTarget": "vrf-demo:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
