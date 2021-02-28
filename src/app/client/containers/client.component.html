@@ -1,0 +1,53 @@
+<h3>
+  1. 공개 키, 비밀 키 쌍을 생성합니다.
+  <button (click)="generateKey()" class="btn btn-primary">키 생성</button>
+</h3>
+<div *ngIf="publicKey">
+  <div class="p4">공개 키</div>
+  <div class="key">{{ publicKey }}</div>
+  <div class="p4">비밀 키</div>
+  <div class="key">{{ secretKey }}</div>
+</div>
+<h3 *ngIf="publicKey">
+  2. 공개 키만 서버로 전송하고, 1차 랜덤값을 요청합니다.
+  <button (click)="sendPublicKey()" class="btn btn-primary">전송</button>
+</h3>
+<div *ngIf="alpha | async">
+  <div class="p4">1차 랜덤값(16진수)</div>
+  <div class="key">{{ alpha | async }}</div>
+</div>
+<h3 *ngIf="alpha | async">
+  3. 비밀 키와 1차 랜덤값을 사용해 최종 랜덤값과 증명값을 계산합니다.
+  <button (click)="generateProof()" class="btn btn-primary">계산</button>
+  <button (click)="bluff()" class="btn btn-warning">거짓 계산</button>
+</h3>
+<div *ngIf="proof">
+  <div class="p4">증명값(16진수)</div>
+  <div class="key">{{ proof }}</div>
+  <div class="p4">최종 랜덤값(16진수)</div>
+  <div class="key">{{ result }}</div>
+  <div class="p4">최종 랜덤값(modular)</div>
+  <div class="key">{{ resultMod }}</div>
+  <div class="p4">결과</div>
+  <div class="key">{{ selected }}</div>
+</div>
+<table *ngIf="proof" class="table table-vertical">
+  <tbody>
+    <tr>
+      <th>성공</th>
+      <td>0~299</td>
+    </tr>
+    <tr>
+      <th>실패</th>
+      <td>300~979</td>
+    </tr>
+    <tr>
+      <th>파괴</th>
+      <td>980~999</td>
+    </tr>
+  </tbody>
+</table>
+<h3 *ngIf="proof">
+  5. 서버로 증명값을 전송합니다.
+  <button (click)="sendProof()" class="btn btn-primary">전송</button>
+</h3>

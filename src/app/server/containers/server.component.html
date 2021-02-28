@@ -1,0 +1,58 @@
+<div *ngIf="publicKey | async as publicKey">
+  <div class="p4">공개 키</div>
+  <div class="key">{{ publicKey }}</div>
+</div>
+
+<h3 *ngIf="publicKey | async">
+  3. 1차 랜덤값을 생성합니다.
+  <button (click)="generateAlpha()" class="btn btn-primary">키 생성</button>
+</h3>
+<div *ngIf="alpha">
+  <div class="p4">1차 랜덤값</div>
+  <div class="key">{{ alpha }}</div>
+</div>
+
+<h3 *ngIf="alpha">
+  4. 1차 랜덤값을 클라이언트로 전송합니다.
+  <button (click)="sendAlpha()" class="btn btn-primary">전송</button>
+</h3>
+
+<div *ngIf="proof | async as proof">
+  <div class="p4">증명값(16진수)</div>
+  <div class="key">{{ proof }}</div>
+</div>
+
+<h3 *ngIf="proof | async">
+  6. 공개 키, 1차 랜덤값, 증명값을 이용해 최종 랜덤값을 검증합니다.
+  <button (click)="verify()" class="btn btn-primary">검증</button>
+</h3>
+
+<div *ngIf="accepted">
+  <div class="p4">검증 결과</div>
+  <div class="key">{{ accepted }}</div>
+</div>
+<div *ngIf="result">
+  <div class="p4">최종 랜덤값(16진수)</div>
+  <div class="key">{{ result }}</div>
+  <div class="p4">최종 랜덤값(modular)</div>
+  <div class="key">{{ resultMod }}</div>
+  <div class="p4">결과</div>
+  <div class="key">{{ selected }}</div>
+</div>
+
+<table *ngIf="result" class="table table-vertical">
+  <tbody>
+    <tr>
+      <th>성공</th>
+      <td>0~299</td>
+    </tr>
+    <tr>
+      <th>실패</th>
+      <td>300~979</td>
+    </tr>
+    <tr>
+      <th>파괴</th>
+      <td>980~999</td>
+    </tr>
+  </tbody>
+</table>
