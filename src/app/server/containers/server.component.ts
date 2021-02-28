@@ -44,9 +44,9 @@ export class ServerComponent implements OnInit {
       } else {
         this.selected = '파괴';
       }
+      this.accepted = true;
     } catch (err) {
       this.accepted = false;
     }
-    this.accepted = true;
   }
 }
