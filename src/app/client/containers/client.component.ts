@@ -19,7 +19,7 @@ export class ClientComponent implements OnInit {
   result: string;
   resultMod: number;
   selected: string;
-  accepted: boolean;
+  accepted = this.client.accepted;
 
   constructor(private server: ServerService, private client: ClientService) {}
 

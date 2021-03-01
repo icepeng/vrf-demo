@@ -45,11 +45,13 @@ export class ServerComponent implements OnInit {
         this.selected = '파괴';
       }
       this.accepted = true;
+      this.client.sendAccepted(true);
     } catch (err) {
       this.result = undefined;
       this.resultMod = undefined;
       this.selected = undefined;
       this.accepted = false;
+      this.client.sendAccepted(false);
     }
   }
 }

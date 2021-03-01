@@ -19,7 +19,6 @@
 <h3 *ngIf="alpha | async">
   5. 비밀 키와 1차 랜덤값을 사용해 최종 랜덤값과 증명값을 계산합니다.
   <button (click)="generateProof()" class="btn btn-primary">계산</button>
-  <button (click)="bluff()" class="btn btn-warning">거짓 계산</button>
 </h3>
 <div *ngIf="proof">
   <div class="p4">증명값(16진수)</div>
@@ -50,4 +49,8 @@
 <h3 *ngIf="proof">
   6. 서버로 증명값을 전송합니다.
   <button (click)="sendProof()" class="btn btn-primary">전송</button>
+</h3>
+<h3 *ngIf="(accepted | async) != null">
+  * 5번 과정에서 클라이언트가 결과를 거짓으로 계산하려고 시도할 수 있습니다.
+  <button (click)="bluff()" class="btn btn-warning">거짓 계산</button>
 </h3>
